@@ -1,0 +1,139 @@
+---
+// Portfolio.astro
+
+const projects = [
+  {
+    image: "/portfolio-house.png",
+    title: "Villa Modern Tropis",
+    category: "Rumah Tinggal",
+    location: "Jakarta Selatan",
+    year: "2024",
+    tag: "Eksklusif",
+    tagColor: "bg-orange-500",
+  },
+  {
+    image: "/portfolio-commercial.png",
+    title: "Gedung Perkantoran SOHO",
+    category: "Komersial",
+    location: "BSD City, Tangerang",
+    year: "2023",
+    tag: "Commercial",
+    tagColor: "bg-secondary",
+  },
+  {
+    image: "/portfolio-interior.png",
+    title: "Interior Minimalis Kontemporer",
+    category: "Interior Design",
+    location: "Bandung",
+    year: "2024",
+    tag: "Interior",
+    tagColor: "bg-accent",
+  },
+];
+
+const categories = ["Semua", "Rumah Tinggal", "Komersial", "Interior Design"];
+---
+
+<section id="portfolio" class="py-24 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 scroll-reveal">
+      <div>
+        <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
+          <div class="w-8 h-0.5 bg-primary"></div>
+          Portofolio
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold text-dark leading-tight">
+          Hasil Karya yang
+          <span class="gradient-text"> Berbicara</span>
+        </h2>
+        <p class="text-lg text-gray-600 mt-4 max-w-xl">
+          Setiap proyek adalah cerminan komitmen kami terhadap kualitas, estetika, dan kepuasan klien.
+        </p>
+      </div>
+      
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-2">
+        {categories.map((cat, i) => (
+          <button 
+            class={`portfolio-filter text-sm font-medium px-4 py-2 rounded-xl transition-all duration-200 ${i === 0 ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
+            data-filter={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="grid md:grid-cols-3 gap-6" id="portfolio-grid">
+      {projects.map((project, index) => (
+        <div 
+          class={`scroll-reveal delay-${(index + 1) * 100} group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer`}
+          data-category={project.category}
+        >
+          <!-- Image -->
+          <div class="relative overflow-hidden h-64">
+            <img 
+              src={project.image}
+              alt={`Proyek ${project.title} oleh Axionova Group`}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
+            />
+            <!-- Overlay on hover -->
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <p class="text-white/80 text-sm mb-3">Lihat detail proyek →</p>
+                <a href="#contact" class="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  Konsultasikan Proyek Serupa
+                </a>
+              </div>
+            </div>
+
+            <!-- Tag -->
+            <div class={`absolute top-4 left-4 ${project.tagColor} text-white text-xs font-bold px-3 py-1 rounded-full`}>
+              {project.tag}
+            </div>
+          </div>
+
+          <!-- Card content -->
+          <div class="p-5">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <span class="text-xs font-semibold text-primary uppercase tracking-wider">{project.category}</span>
+                <h3 class="text-lg font-bold text-dark mt-1 group-hover:text-primary transition-colors">{project.title}</h3>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <span class="text-xs text-gray-400 font-medium">{project.year}</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 mt-2">
+              <svg class="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span class="text-xs text-gray-500">{project.location}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Load more / See all -->
+    <div class="text-center mt-12 scroll-reveal">
+      <a 
+        href="#contact"
+        id="portfolio-more-btn"
+        class="inline-flex items-center gap-2 border-2 border-primary text-primary font-semibold px-8 py-3.5 rounded-xl hover:bg-primary hover:text-white transition-all duration-300 group"
+      >
+        Diskusikan Proyek Anda
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

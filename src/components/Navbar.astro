@@ -1,0 +1,68 @@
+---
+// Navbar.astro
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-bold text-xl text-dark tracking-tight">Axionova</span>
+          <span class="font-bold text-xl text-primary tracking-tight"> Group</span>
+          <p class="text-xs text-gray-400 -mt-1 font-medium">Architecture & Design</p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors duration-200 relative group">
+          Tentang Kami
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#services" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors duration-200 relative group">
+          Layanan
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#portfolio" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors duration-200 relative group">
+          Portofolio
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#process" class="text-sm font-medium text-gray-600 hover:text-primary transition-colors duration-200 relative group">
+          Proses
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a 
+          href="#contact" 
+          id="nav-cta-btn"
+          class="bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-primary-dark shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:-translate-y-0.5"
+        >
+          Konsultasi Gratis
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-6">
+      <div class="flex flex-col gap-1 pt-2 border-t border-gray-100">
+        <a href="#about" class="px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-orange-50 rounded-xl transition-all">Tentang Kami</a>
+        <a href="#services" class="px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-orange-50 rounded-xl transition-all">Layanan</a>
+        <a href="#portfolio" class="px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-orange-50 rounded-xl transition-all">Portofolio</a>
+        <a href="#process" class="px-4 py-3 text-sm font-medium text-gray-600 hover:text-primary hover:bg-orange-50 rounded-xl transition-all">Proses</a>
+        <a href="#contact" class="mt-2 bg-primary text-white text-sm font-semibold px-4 py-3 rounded-xl text-center hover:bg-primary-dark transition-all">Konsultasi Gratis</a>
+      </div>
+    </div>
+  </div>
+</nav>

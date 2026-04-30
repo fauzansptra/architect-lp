@@ -1,0 +1,136 @@
+---
+// Services.astro
+
+const services = [
+  {
+    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+    title: "Desain Rumah Tinggal",
+    description: "Desain hunian eksklusif yang disesuaikan dengan gaya hidup, kepribadian, dan kebutuhan keluarga Anda. Setiap ruang dirancang dengan fungsi optimal.",
+    features: ["Desain konseptual 3D", "Gambar kerja lengkap", "Estimasi anggaran akurat", "Konsultasi tidak terbatas"],
+    color: "from-orange-500 to-orange-400",
+    bg: "bg-orange-50",
+    badge: "Terpopuler",
+    badgeColor: "bg-orange-500",
+  },
+  {
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+    title: "Bangunan Komersial",
+    description: "Tingkatkan nilai bisnis Anda melalui desain komersial modern dan efisien. Kami merancang ruang yang mendukung produktivitas dan kesan profesional.",
+    features: ["Analisis kebutuhan bisnis", "Desain interior komersial", "Efisiensi energi & biaya", "Perizinan & regulasi"],
+    color: "from-blue-700 to-secondary",
+    bg: "bg-blue-50",
+    badge: null,
+    badgeColor: null,
+  },
+  {
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    title: "Gambar Kerja & Perizinan",
+    description: "Dokumen teknis lengkap dan akurat untuk kelancaran proses pembangunan. Kami memastikan semua izin dan regulasi terpenuhi dengan tepat.",
+    features: ["Gambar teknis detail", "IMB & perizinan", "RAB terperinci", "Pengawasan lapangan"],
+    color: "from-amber-600 to-accent",
+    bg: "bg-amber-50",
+    badge: "Baru",
+    badgeColor: "bg-accent",
+  },
+];
+---
+
+<section id="services" class="py-24 bg-gray-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+      <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
+        <div class="w-8 h-0.5 bg-primary"></div>
+        Layanan Kami
+        <div class="w-8 h-0.5 bg-primary"></div>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold text-dark leading-tight mb-4">
+        Solusi Arsitektur
+        <span class="gradient-text"> Lengkap</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        Dari hunian pribadi hingga gedung komersial — kami hadir dengan solusi terpadu untuk setiap kebutuhan Anda.
+      </p>
+    </div>
+
+    <!-- Service Cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {services.map((service, index) => (
+        <div 
+          class={`scroll-reveal delay-${(index + 1) * 100} group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative`}
+        >
+          {service.badge && (
+            <div class={`absolute top-4 right-4 ${service.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full z-10`}>
+              {service.badge}
+            </div>
+          )}
+          
+          <!-- Card top gradient bar -->
+          <div class={`h-1.5 bg-gradient-to-r ${service.color}`}></div>
+
+          <div class="p-7">
+            <!-- Icon -->
+            <div class={`w-14 h-14 ${service.bg} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+              <div class={`w-8 h-8 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center`}>
+                <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Title & Desc -->
+            <h3 class="text-xl font-bold text-dark mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">{service.description}</p>
+
+            <!-- Features list -->
+            <ul class="space-y-2 mb-7">
+              {service.features.map(f => (
+                <li class="flex items-center gap-2 text-sm text-gray-600">
+                  <div class={`w-4 h-4 rounded-full bg-gradient-to-br ${service.color} flex-shrink-0 flex items-center justify-center`}>
+                    <svg class="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <!-- CTA -->
+            <a 
+              href="#contact" 
+              class="w-full inline-flex items-center justify-center gap-2 border-2 border-gray-200 text-dark text-sm font-semibold py-3 rounded-xl hover:border-primary hover:text-primary hover:bg-orange-50 transition-all duration-300 group/btn"
+            >
+              Pelajari Lebih Lanjut
+              <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA banner -->
+    <div class="mt-16 scroll-reveal">
+      <div class="bg-gradient-to-r from-dark via-secondary to-dark rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+        <!-- Decorative circles -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl"></div>
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl"></div>
+        
+        <div class="relative z-10">
+          <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Tidak yakin layanan mana yang tepat?</h3>
+          <p class="text-gray-300">Ceritakan kebutuhan Anda — tim kami siap membantu menemukan solusi terbaik.</p>
+        </div>
+        <a 
+          href="#contact"
+          id="services-cta-btn"
+          class="relative z-10 flex-shrink-0 bg-primary text-white font-semibold px-8 py-4 rounded-xl hover:bg-primary-dark shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+        >
+          Diskusi Gratis
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

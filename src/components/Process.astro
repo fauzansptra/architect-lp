@@ -1,0 +1,134 @@
+---
+// Process.astro
+
+const steps = [
+  {
+    number: "01",
+    icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
+    title: "Konsultasi Kebutuhan",
+    description: "Kami mendengarkan visi, anggaran, dan kebutuhan spesifik Anda secara mendalam. Sesi pertama sepenuhnya gratis.",
+    duration: "Hari ke-1",
+    color: "from-primary to-orange-400",
+  },
+  {
+    number: "02",
+    icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z",
+    title: "Pembuatan Konsep Desain",
+    description: "Tim arsitek kami mengembangkan konsep desain 2D & 3D yang sesuai dengan kebutuhan dan anggaran yang telah disepakati.",
+    duration: "Minggu ke-1-2",
+    color: "from-secondary to-blue-400",
+  },
+  {
+    number: "03",
+    icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
+    title: "Revisi & Finalisasi",
+    description: "Kami mengakomodasi semua feedback Anda dengan proses revisi tanpa batas hingga desain benar-benar sempurna dan memuaskan.",
+    duration: "Minggu ke-2-4",
+    color: "from-accent to-yellow-400",
+  },
+  {
+    number: "04",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    title: "Pendampingan Pembangunan",
+    description: "Kami memastikan eksekusi bangunan sesuai desain dengan monitoring berkala dan koordinasi dengan kontraktor Anda.",
+    duration: "Selama konstruksi",
+    color: "from-green-500 to-emerald-400",
+  },
+];
+---
+
+<section id="process" class="py-24 bg-gray-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+      <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
+        <div class="w-8 h-0.5 bg-primary"></div>
+        Proses Kerja
+        <div class="w-8 h-0.5 bg-primary"></div>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold text-dark leading-tight mb-4">
+        Transparan &
+        <span class="gradient-text"> Terstruktur</span>
+      </h2>
+      <p class="text-lg text-gray-600">
+        Kami percaya transparansi adalah kunci kepercayaan. Inilah proses kerja kami yang sistematis dan profesional.
+      </p>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="grid md:grid-cols-4 gap-6 relative">
+      <!-- Connecting line (desktop) -->
+      <div class="hidden md:block absolute top-12 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary via-accent to-secondary opacity-30 -z-0" 
+           style="left: calc(12.5% + 28px); right: calc(12.5% + 28px);">
+      </div>
+
+      {steps.map((step, index) => (
+        <div class={`scroll-reveal delay-${(index + 1) * 100} group relative`}>
+          <!-- Step card -->
+          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+            <!-- Step number bg -->
+            <div class="absolute top-0 right-0 text-6xl font-black text-gray-100 leading-none select-none pointer-events-none -mr-2 -mt-2">
+              {step.number}
+            </div>
+
+            <!-- Icon -->
+            <div class={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+              <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
+              </svg>
+            </div>
+
+            <!-- Step number badge -->
+            <div class={`inline-flex items-center gap-1 bg-gradient-to-r ${step.color} text-white text-xs font-bold px-2.5 py-1 rounded-full mb-3`}>
+              Langkah {step.number}
+            </div>
+
+            <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
+
+            <!-- Duration badge -->
+            <div class="flex items-center gap-2 pt-3 border-t border-gray-100">
+              <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-xs text-gray-500 font-medium">{step.duration}</span>
+            </div>
+          </div>
+
+          <!-- Arrow connector (mobile) -->
+          {index < steps.length - 1 && (
+            <div class="md:hidden flex justify-center py-3">
+              <svg class="w-6 h-6 text-gray-300 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Guarantee section -->
+    <div class="mt-16 scroll-reveal">
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "Garansi Kepuasan", desc: "Revisi tanpa batas sampai Anda 100% puas dengan hasil desain" },
+          { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", title: "Tepat Waktu", desc: "Komitmen penyelesaian sesuai timeline yang telah disepakati bersama" },
+          { icon: "M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z", title: "Harga Transparan", desc: "Tidak ada biaya tersembunyi. RAB detail sejak awal perencanaan" },
+        ].map((item) => (
+          <div class="flex items-start gap-4 bg-white p-5 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+            <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={item.icon} />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-dark text-sm mb-1">{item.title}</h4>
+              <p class="text-xs text-gray-600 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
