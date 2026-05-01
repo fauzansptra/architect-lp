@@ -37,27 +37,27 @@ const steps = [
 ];
 ---
 
-<section id="process" class="py-24 bg-gray-50 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="process" class="py-16 md:py-24 bg-gray-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
     
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+    <div class="text-center max-w-2xl mx-auto mb-10 md:mb-16 scroll-reveal">
       <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
         <div class="w-8 h-0.5 bg-primary"></div>
         Proses Kerja
         <div class="w-8 h-0.5 bg-primary"></div>
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold text-dark leading-tight mb-4">
+      <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-dark leading-tight mb-3">
         Transparan &
         <span class="gradient-text"> Terstruktur</span>
       </h2>
-      <p class="text-lg text-gray-600">
+      <p class="text-sm sm:text-base md:text-lg text-gray-600">
         Kami percaya transparansi adalah kunci kepercayaan. Inilah proses kerja kami yang sistematis dan profesional.
       </p>
     </div>
 
     <!-- Steps Grid -->
-    <div class="grid md:grid-cols-4 gap-6 relative">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 relative">
       <!-- Connecting line (desktop) -->
       <div class="hidden md:block absolute top-12 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary via-accent to-secondary opacity-30 -z-0" 
            style="left: calc(12.5% + 28px); right: calc(12.5% + 28px);">
@@ -66,15 +66,15 @@ const steps = [
       {steps.map((step, index) => (
         <div class={`scroll-reveal delay-${(index + 1) * 100} group relative`}>
           <!-- Step card -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+          <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
             <!-- Step number bg -->
-            <div class="absolute top-0 right-0 text-6xl font-black text-gray-100 leading-none select-none pointer-events-none -mr-2 -mt-2">
+            <div class="absolute top-0 right-0 text-5xl sm:text-6xl font-black text-gray-100 leading-none select-none pointer-events-none -mr-2 -mt-2">
               {step.number}
             </div>
 
             <!-- Icon -->
-            <div class={`w-14 h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10`}>
-              <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class={`w-11 h-11 sm:w-14 sm:h-14 bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300 relative z-10`}>
+              <svg class="w-5 h-5 sm:w-7 sm:h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={step.icon} />
               </svg>
             </div>
@@ -84,8 +84,8 @@ const steps = [
               Langkah {step.number}
             </div>
 
-            <h3 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
+            <h3 class="text-base sm:text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors">{step.title}</h3>
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">{step.description}</p>
 
             <!-- Duration badge -->
             <div class="flex items-center gap-2 pt-3 border-t border-gray-100">
@@ -96,8 +96,8 @@ const steps = [
             </div>
           </div>
 
-          <!-- Arrow connector (mobile) -->
-          {index < steps.length - 1 && (
+          <!-- Arrow connector removed on mobile since 2-col grid handles it -->
+          {false && index < steps.length - 1 && (
             <div class="md:hidden flex justify-center py-3">
               <svg class="w-6 h-6 text-gray-300 rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -109,8 +109,8 @@ const steps = [
     </div>
 
     <!-- Guarantee section -->
-    <div class="mt-16 scroll-reveal">
-      <div class="grid md:grid-cols-3 gap-6">
+    <div class="mt-8 md:mt-16 scroll-reveal">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
         {[
           { icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z", title: "Garansi Kepuasan", desc: "Revisi tanpa batas sampai Anda 100% puas dengan hasil desain" },
           { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", title: "Tepat Waktu", desc: "Komitmen penyelesaian sesuai timeline yang telah disepakati bersama" },

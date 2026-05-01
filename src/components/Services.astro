@@ -35,27 +35,27 @@ const services = [
 ];
 ---
 
-<section id="services" class="py-24 bg-gray-50 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="services" class="py-16 md:py-24 bg-gray-50 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6">
     
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+    <div class="text-center max-w-2xl mx-auto mb-10 md:mb-16 scroll-reveal">
       <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
         <div class="w-8 h-0.5 bg-primary"></div>
         Layanan Kami
         <div class="w-8 h-0.5 bg-primary"></div>
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold text-dark leading-tight mb-4">
+      <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-dark leading-tight mb-3">
         Solusi Arsitektur
         <span class="gradient-text"> Lengkap</span>
       </h2>
-      <p class="text-lg text-gray-600">
+      <p class="text-sm sm:text-base md:text-lg text-gray-600">
         Dari hunian pribadi hingga gedung komersial — kami hadir dengan solusi terpadu untuk setiap kebutuhan Anda.
       </p>
     </div>
 
     <!-- Service Cards -->
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-3 gap-5 md:gap-8">
       {services.map((service, index) => (
         <div 
           class={`scroll-reveal delay-${(index + 1) * 100} group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 relative`}
@@ -69,7 +69,7 @@ const services = [
           <!-- Card top gradient bar -->
           <div class={`h-1.5 bg-gradient-to-r ${service.color}`}></div>
 
-          <div class="p-7">
+          <div class="p-5 sm:p-7">
             <!-- Icon -->
             <div class={`w-14 h-14 ${service.bg} rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
               <div class={`w-8 h-8 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center`}>
@@ -113,20 +113,20 @@ const services = [
     </div>
 
     <!-- Bottom CTA banner -->
-    <div class="mt-16 scroll-reveal">
-      <div class="bg-gradient-to-r from-dark via-secondary to-dark rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+    <div class="mt-10 md:mt-16 scroll-reveal">
+      <div class="bg-gradient-to-r from-dark via-secondary to-dark rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-5 md:gap-6 shadow-2xl relative overflow-hidden text-center md:text-left">
         <!-- Decorative circles -->
         <div class="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-2xl"></div>
         <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-2xl"></div>
         
         <div class="relative z-10">
-          <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Tidak yakin layanan mana yang tepat?</h3>
-          <p class="text-gray-300">Ceritakan kebutuhan Anda — tim kami siap membantu menemukan solusi terbaik.</p>
+          <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">Tidak yakin layanan mana yang tepat?</h3>
+          <p class="text-sm sm:text-base text-gray-300">Ceritakan kebutuhan Anda — tim kami siap membantu menemukan solusi terbaik.</p>
         </div>
         <a 
           href="#contact"
           id="services-cta-btn"
-          class="relative z-10 flex-shrink-0 bg-primary text-white font-semibold px-8 py-4 rounded-xl hover:bg-primary-dark shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap"
+          class="relative z-10 flex-shrink-0 bg-primary text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl hover:bg-primary-dark shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5 whitespace-nowrap text-sm sm:text-base w-full md:w-auto"
         >
           Diskusi Gratis
         </a>

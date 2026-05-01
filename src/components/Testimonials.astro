@@ -35,7 +35,7 @@ const testimonials = [
 ];
 ---
 
-<section id="testimonials" class="py-24 bg-dark overflow-hidden relative">
+<section id="testimonials" class="py-16 md:py-24 bg-dark overflow-hidden relative">
   <!-- Background decorations -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
@@ -43,28 +43,28 @@ const testimonials = [
     <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(white 1px, transparent 1px); background-size: 40px 40px;"></div>
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-6">
+  <div class="relative max-w-7xl mx-auto px-5 sm:px-6">
     
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+    <div class="text-center max-w-2xl mx-auto mb-10 md:mb-16 scroll-reveal">
       <div class="inline-flex items-center gap-2 text-primary text-sm font-semibold mb-4">
         <div class="w-8 h-0.5 bg-primary"></div>
         Testimoni Klien
         <div class="w-8 h-0.5 bg-primary"></div>
       </div>
-      <h2 class="text-3xl md:text-5xl font-bold text-white leading-tight mb-4">
+      <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white leading-tight mb-3">
         Apa Kata
         <span class="gradient-text"> Klien Kami</span>
       </h2>
-      <p class="text-lg text-gray-400">
+      <p class="text-sm sm:text-base md:text-lg text-gray-400">
         Kepercayaan klien adalah aset terbesar kami. Simak pengalaman nyata mereka bersama Axionova Group.
       </p>
     </div>
 
     <!-- Testimonial Cards -->
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-4 md:gap-6">
       {testimonials.map((t, index) => (
-        <div class={`scroll-reveal delay-${(index + 1) * 100} group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-7 hover:bg-white/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2`}>
+        <div class={`scroll-reveal delay-${(index + 1) * 100} group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 sm:p-7 hover:bg-white/10 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2`}>
           <!-- Rating -->
           <div class="flex items-center gap-1 mb-4">
             {Array.from({length: t.rating}).map(() => (
@@ -105,20 +105,20 @@ const testimonials = [
     </div>
 
     <!-- Bottom stats -->
-    <div class="mt-16 grid md:grid-cols-4 gap-6 scroll-reveal">
+    <div class="mt-8 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 scroll-reveal">
       {[
         { value: "250+", label: "Proyek Selesai", icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" },
         { value: "98%", label: "Klien Puas", icon: "M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
         { value: "10+", label: "Tahun Berpengalaman", icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
         { value: "15+", label: "Kota di Indonesia", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" },
       ].map((stat) => (
-        <div class="text-center p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors">
+        <div class="text-center p-4 sm:p-6 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors">
           <div class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
             <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={stat.icon} />
             </svg>
           </div>
-          <div class="text-3xl font-bold text-white mb-1">{stat.value}</div>
+          <div class="text-2xl sm:text-3xl font-bold text-white mb-1">{stat.value}</div>
           <p class="text-gray-400 text-sm">{stat.label}</p>
         </div>
       ))}
