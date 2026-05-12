@@ -36,6 +36,15 @@ jobs:
           ls -la ./dist || true
           echo "-- end dist contents --"
 
+      - name: Show .nojekyll and preview index
+        run: |
+          echo "Checking for .nojekyll..."
+          if [ -f ./dist/.nojekyll ]; then echo ".nojekyll exists"; else echo ".nojekyll missing"; fi
+          echo "---- show .nojekyll ----"
+          cat ./dist/.nojekyll || true
+          echo "---- index.html preview ----"
+          head -n 40 ./dist/index.html || true
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
