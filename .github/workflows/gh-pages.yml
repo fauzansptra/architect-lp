@@ -25,6 +25,17 @@ jobs:
           ASTRO_BASE: "/architect-lp/"
         run: npm run build
 
+      - name: Disable Jekyll on GitHub Pages
+        # Create a .nojekyll file in the publish directory so GitHub Pages won't run Jekyll
+        run: |
+          echo "" > ./dist/.nojekyll
+
+      - name: Show dist contents
+        run: |
+          echo "-- dist contents --"
+          ls -la ./dist || true
+          echo "-- end dist contents --"
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
